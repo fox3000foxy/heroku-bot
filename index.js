@@ -1,4 +1,5 @@
 const mineflayer = require('mineflayer')
+const http = require('http')
 
 const bot = mineflayer.createBot({
   host: 'fox3000foxy.aternos.me', // optional
@@ -10,8 +11,10 @@ bot.on('chat', function (username, message) {
   if (username === bot.username) return
   bot.chat(message)
 })
-bot.on('login',()=>{
-console.log("Started to "+bot.host+":"+bot.port)
+
+http.createServer((request,response)=>{
+    response.writeHead(200, {"Content-Type":"text/plain"})
+    response.end("Started")
 })
 // Log errors and kick reasons:
 bot.on('kicked', (reason, loggedIn) => console.log(reason, loggedIn))
