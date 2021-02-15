@@ -15,7 +15,7 @@ bot.on('chat', function (username, message) {
 http.createServer((request,response)=>{
     response.writeHead(200, {"Content-Type":"text/plain"})
     response.end("Started")
-})
+}.listen(process.env.PORT))
 // Log errors and kick reasons:
 bot.on('kicked', (reason, loggedIn) => console.log(reason, loggedIn))
 bot.on('error', err => console.log(err))
