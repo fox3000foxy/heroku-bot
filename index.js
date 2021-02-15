@@ -1,19 +1,18 @@
 const mineflayer = require('mineflayer')
 
 const bot = mineflayer.createBot({
-  host: 'localhost', // optional
+  host: 'fox3000foxy.aternos.me', // optional
   port: 25565,       // optional
-  username: 'email@example.com', // email and password are required only for
-  password: '12345678',          // online-mode=true servers
-  version: false,                 // false corresponds to auto version detection (that's the default), put for example "1.8.8" if you need a specific version
-  auth: 'mojang'      // optional; by default uses mojang, if using a microsoft account, set to 'microsoft'
+  username: 'Tester', // email and password are required only for
 })
 
 bot.on('chat', function (username, message) {
   if (username === bot.username) return
   bot.chat(message)
 })
-
+bot.on('login',()=>{
+console.log("Started to "+bot.host+":"+bot.port)
+})
 // Log errors and kick reasons:
 bot.on('kicked', (reason, loggedIn) => console.log(reason, loggedIn))
 bot.on('error', err => console.log(err))
