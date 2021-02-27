@@ -4,9 +4,9 @@ const http = require('http')
 const bot = mineflayer.createBot({
   host: 'fox3000foxy.aternos.me', // optional
   port: 25565,       // optional
-  username: 'IRC', // email and password are required only for
+  username: 'ANTIAFKBOT', // email and password are required only for
 })
-
+bot.setControlState("jump",true)
 http.createServer((request,response)=>{
     response.writeHead(200, {"Content-Type":"text/plain"})
     response.end("Started")
